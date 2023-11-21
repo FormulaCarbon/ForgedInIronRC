@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
-@Autonomous(name = "CENTERSTAGE RED RR BD PARK")
+@Autonomous(name = "CENTERSTAGE RED RR BD P")
 public class CENTERSTAGE_RED_RR_BD_PARK extends LinearOpMode {
 
     @Override

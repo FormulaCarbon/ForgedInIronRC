@@ -69,7 +69,7 @@ public class CameraTestRed extends LinearOpMode
          * of a frame from the camera. Note that switching pipelines on-the-fly
          * (while a streaming session is in flight) *IS* supported.
          */
-        webcam.setPipeline(new CustomElementPositionPipeline());
+        webcam.setPipeline(new RedElementPositionPipeline());
 
         /*
          * Open the connection to the camera device. New in v1.4.0 is the ability
@@ -271,7 +271,7 @@ public class CameraTestRed extends LinearOpMode
             }
         }
     }
-    public static class CustomElementPositionPipeline extends OpenCvPipeline
+    public static class RedElementPositionPipeline extends OpenCvPipeline
     {
         /*
          * An enum to define the team element position
