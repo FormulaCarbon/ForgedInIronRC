@@ -40,7 +40,6 @@ public class CENTERSTAGE_RED_RR_BD_SCAN extends LinearOpMode {
 
         TrajectorySequence toRightDrop = drive.trajectorySequenceBuilder(startPose)
                 .lineToLinearHeading(new Pose2d(10, -26, Math.toRadians(0)))
-                .lineTo(new Vector2d(11, -26))
                 .build();
 
         TrajectorySequence toCenterDrop = drive.trajectorySequenceBuilder(startPose)
@@ -54,7 +53,7 @@ public class CENTERSTAGE_RED_RR_BD_SCAN extends LinearOpMode {
         TrajectorySequence rightDropToPark = drive.trajectorySequenceBuilder(toRightDrop.end())
                 .lineTo(new Vector2d(10, -32))
                 .splineToConstantHeading(new Vector2d(10, -48), Math.toRadians(0))
-                .splineToSplineHeading(new Pose2d(48, -32, Math.toRadians(180)), Math.toRadians(0))
+                .splineToSplineHeading(new Pose2d(48, -32, Math.toRadians(180)), Math.toRadians(90))
                 .build();
 
         TrajectorySequence centerDropToPark = drive.trajectorySequenceBuilder(toCenterDrop.end())
