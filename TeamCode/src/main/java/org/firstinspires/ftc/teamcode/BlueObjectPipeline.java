@@ -35,9 +35,9 @@ public class BlueObjectPipeline extends OpenCvPipeline {
     static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(109,98);
     static final Point REGION2_TOPLEFT_ANCHOR_POINT = new Point(181,98);
     static final Point REGION3_TOPLEFT_ANCHOR_POINT = new Point(253,98);
-    static final Point REGION1_CENTER_ANCHOR_POINT = new Point(360,450);
-    static final Point REGION2_CENTER_ANCHOR_POINT = new Point(610,450);
-    static final Point REGION3_CENTER_ANCHOR_POINT = new Point(860,450);
+    static final Point REGION1_CENTER_ANCHOR_POINT = new Point(100,250);
+    static final Point REGION2_CENTER_ANCHOR_POINT = new Point(580,200);
+    static final Point REGION3_CENTER_ANCHOR_POINT = new Point(1020,200);
     static final int REGION_WIDTH = 60;
     static final int REGION_HEIGHT = 60;
 

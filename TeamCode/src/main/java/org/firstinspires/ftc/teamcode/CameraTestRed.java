@@ -22,6 +22,8 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.acmerobotics.dashboard.FtcDashboard;
+import com.acmerobotics.dashboard.config.Config;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -39,11 +41,18 @@ import org.openftc.easyopencv.OpenCvPipeline;
 import org.openftc.easyopencv.OpenCvWebcam;
 
 
+@Config
 @TeleOp(name = "Camera Test Red")
 public class CameraTestRed extends LinearOpMode
 {
     OpenCvWebcam webcam;
     static int Element_Position;
+
+    public static Point REGION1_CENTER_ANCHOR_POINT = new Point(360,450);
+    public static Point REGION2_CENTER_ANCHOR_POINT = new Point(610,450);
+    public static Point REGION3_CENTER_ANCHOR_POINT = new Point(860,450);
+    public static int REGION_WIDTH = 60;
+    public static int REGION_HEIGHT = 60;
 
     @Override
     public void runOpMode()
@@ -113,6 +122,8 @@ public class CameraTestRed extends LinearOpMode
                  */
             }
         });
+
+        FtcDashboard.getInstance().startCameraStream(webcam, 0);
 
         telemetry.addLine("Waiting for start");
         telemetry.update();
@@ -295,11 +306,7 @@ public class CameraTestRed extends LinearOpMode
         static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(109,98);
         static final Point REGION2_TOPLEFT_ANCHOR_POINT = new Point(181,98);
         static final Point REGION3_TOPLEFT_ANCHOR_POINT = new Point(253,98);
-        static final Point REGION1_CENTER_ANCHOR_POINT = new Point(360,450);
-        static final Point REGION2_CENTER_ANCHOR_POINT = new Point(610,450);
-        static final Point REGION3_CENTER_ANCHOR_POINT = new Point(860,450);
-        static final int REGION_WIDTH = 60;
-        static final int REGION_HEIGHT = 60;
+
 
         /*
          * Points which actually define the sample region rectangles, derived from above values

@@ -17,6 +17,7 @@ public class intaketest extends LinearOpMode {
             botArm.intakeOn();
             sleep(1000);
             botArm.intakeOff();
+
             // Put run blocks here.
             while (opModeIsActive()) {
 
