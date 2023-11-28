@@ -81,7 +81,7 @@ public class Arm {
     public void resetIntakeTilt()
     {
         LeftTiltServo.setPosition(0.48);
-        RightTiltServo.setPosition(0.58);
+        RightTiltServo.setPosition(0.52);
     }
 
     public void init(HardwareMap map, LinearOpMode OpMode)

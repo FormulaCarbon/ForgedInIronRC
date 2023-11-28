@@ -33,16 +33,17 @@ public class CENTERSTAGE_BLUE_RR_BD_DROP extends LinearOpMode {
 
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
-        Pose2d startPose = new Pose2d(8, 63, Math.toRadians(270));
+        Pose2d startPose = new Pose2d(9, 63, Math.toRadians(270));
 
         drive.setPoseEstimate(startPose);
 
         TrajectorySequence toLeftDrop = drive.trajectorySequenceBuilder(startPose)
-                .lineToLinearHeading(new Pose2d(6, 26, Math.toRadians(0)))
+                .splineToLinearHeading(new Pose2d(6, 26, Math.toRadians(0)), Math.toRadians(180))
                 .build();
 
         TrajectorySequence toRightDrop = drive.trajectorySequenceBuilder(startPose)
-                .lineToLinearHeading(new Pose2d(18, 32, Math.toRadians(180)))
+                .lineToLinearHeading(new Pose2d(21, 32, Math.toRadians(180)))
+                .lineTo(new Vector2d(17, 32))
                 .build();
 
         TrajectorySequence toCenterDrop = drive.trajectorySequenceBuilder(startPose)
@@ -50,18 +51,17 @@ public class CENTERSTAGE_BLUE_RR_BD_DROP extends LinearOpMode {
                 .build();
 
         TrajectorySequence leftDropToPark = drive.trajectorySequenceBuilder(toLeftDrop.end())
-                .lineTo(new Vector2d(5, 32))
-                .splineToConstantHeading(new Vector2d(10, 48), Math.toRadians(0))
-                .splineToLinearHeading(new Pose2d(48, 38, Math.toRadians(180)), Math.toRadians(270))
+                .lineToConstantHeading(new Vector2d(10, 48))
+                .splineToLinearHeading(new Pose2d(51, 42, Math.toRadians(180)), Math.toRadians(270))
                 .build();
 
         TrajectorySequence rightDropToPark = drive.trajectorySequenceBuilder(toRightDrop.end())
-                .lineTo(new Vector2d(52, 26))
+                .lineTo(new Vector2d(54, 22))
                 .build();
 
         TrajectorySequence centerDropToPark = drive.trajectorySequenceBuilder(toCenterDrop.end())
                 .lineTo(new Vector2d(12, 40))
-                .lineToSplineHeading(new Pose2d(52, 36, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(55, 35, Math.toRadians(180)))
                 .build();
 
 

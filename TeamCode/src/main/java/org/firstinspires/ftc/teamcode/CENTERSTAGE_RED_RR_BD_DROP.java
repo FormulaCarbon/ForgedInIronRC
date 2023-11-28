@@ -35,16 +35,16 @@ public class CENTERSTAGE_RED_RR_BD_DROP extends LinearOpMode {
 
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
-        Pose2d startPose = new Pose2d(8, -63, Math.toRadians(90));
+        Pose2d startPose = new Pose2d(9, -63, Math.toRadians(90));
 
         drive.setPoseEstimate(startPose);
 
         TrajectorySequence toLeftDrop = drive.trajectorySequenceBuilder(startPose)
-                .lineToLinearHeading(new Pose2d(14, -32 , Math.toRadians(180)))
+                .splineToLinearHeading(new Pose2d(14, -32 , Math.toRadians(180)), Math.toRadians(180))
                 .build();
 
         TrajectorySequence toRightDrop = drive.trajectorySequenceBuilder(startPose)
-                .lineToLinearHeading(new Pose2d(7, -26, Math.toRadians(0)))
+                .splineToLinearHeading(new Pose2d(7, -26, Math.toRadians(0)), Math.toRadians(180))
                 .build();
 
         TrajectorySequence toCenterDrop = drive.trajectorySequenceBuilder(startPose)
@@ -52,13 +52,13 @@ public class CENTERSTAGE_RED_RR_BD_DROP extends LinearOpMode {
                 .build();
 
         TrajectorySequence leftDropToPark = drive.trajectorySequenceBuilder(toLeftDrop.end())
-                .lineTo(new Vector2d(50, -25))
+                .lineTo(new Vector2d(50, -23))
                 .build();
 
         TrajectorySequence rightDropToPark = drive.trajectorySequenceBuilder(toRightDrop.end())
                 .lineTo(new Vector2d(6, -32))
                 .splineToConstantHeading(new Vector2d(10, -48), Math.toRadians(0))
-                .splineToSplineHeading(new Pose2d(50, -36, Math.toRadians(180)), Math.toRadians(90))
+                .splineToSplineHeading(new Pose2d(50, -38, Math.toRadians(180)), Math.toRadians(90))
                 .build();
 
         TrajectorySequence centerDropToPark = drive.trajectorySequenceBuilder(toCenterDrop.end())
