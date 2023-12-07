@@ -48,10 +48,10 @@ public class CameraTestRed extends LinearOpMode
     OpenCvWebcam webcam;
     static int Element_Position;
 
-    public static Point REGION1_CENTER_ANCHOR_POINT = new Point(360,450);
-    public static Point REGION2_CENTER_ANCHOR_POINT = new Point(610,450);
-    public static Point REGION3_CENTER_ANCHOR_POINT = new Point(860,450);
-    public static int REGION_WIDTH = 60;
+    public static Point REGION1_CENTER_ANCHOR_POINT = new Point(150,400);
+    public static Point REGION2_CENTER_ANCHOR_POINT = new Point(600,300);
+    public static Point REGION3_CENTER_ANCHOR_POINT = new Point(1050,350);
+    public static int REGION_WIDTH = 100;
     public static int REGION_HEIGHT = 60;
 
     @Override

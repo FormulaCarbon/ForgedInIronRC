@@ -3,20 +3,18 @@ package org.firstinspires.ftc.teamcode;
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.geometry.Vector2d;
-import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
-
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "CENTERSTAGE RED RR BD SP")
-public class CENTERSTAGE_RED_RR_BD_SCAN extends LinearOpMode {
+@Autonomous(name = "CENTERSTAGE RED RR TR S")
+public class CENTERSTAGE_RED_RR_TR_SCANONLY extends LinearOpMode {
     private OpenCvCamera webcam;
 
     private static final int CAMERA_WIDTH = 1280; // width  of wanted camera resolution
@@ -106,7 +104,7 @@ public class CENTERSTAGE_RED_RR_BD_SCAN extends LinearOpMode {
             sleep(1000);
             botArm.intakeOff();
 
-            drive.followTrajectorySequence(leftDropToPark);
+
 
         } else if (DropPos == RedObjectPipeline.ElementPosition.CENTER) {
             drive.followTrajectorySequence(toCenterDrop);
@@ -115,7 +113,7 @@ public class CENTERSTAGE_RED_RR_BD_SCAN extends LinearOpMode {
             sleep(1000);
             botArm.intakeOff();
 
-            drive.followTrajectorySequence(centerDropToPark);
+
 
         } else if (DropPos == RedObjectPipeline.ElementPosition.RIGHT) {
             drive.followTrajectorySequence(toRightDrop);
@@ -124,7 +122,6 @@ public class CENTERSTAGE_RED_RR_BD_SCAN extends LinearOpMode {
             sleep(1000);
             botArm.intakeOff();
 
-            drive.followTrajectorySequence(rightDropToPark);
         }
 
         if (isStopRequested()) return;

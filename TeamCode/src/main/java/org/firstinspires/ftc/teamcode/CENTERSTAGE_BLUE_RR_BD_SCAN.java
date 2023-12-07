@@ -18,7 +18,7 @@ public class CENTERSTAGE_BLUE_RR_BD_SCAN extends LinearOpMode {
     private OpenCvCamera webcam;
 
     private static final int CAMERA_WIDTH = 1280; // width  of wanted camera resolution
-    private static final int CAMERA_HEIGHT = 720; // height of wanted camera resolution
+    private static final int CAMERA_HEIGHT = 960; // height of wanted camera resolution
 
     private BlueObjectPipeline.ElementPosition DropPos;
     Arm botArm = new Arm();

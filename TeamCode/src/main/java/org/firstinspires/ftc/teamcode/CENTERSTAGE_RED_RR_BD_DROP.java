@@ -19,13 +19,13 @@ import org.openftc.easyopencv.OpenCvCameraRotation;
 public class CENTERSTAGE_RED_RR_BD_DROP extends LinearOpMode {
 
     public static double armPower = 0.3;
-    public static double armDropPos = -1600;
+    public static double armDropPos = -1800;
     public static double intakeDropAngle = 0.0;
 
     private OpenCvCamera webcam;
 
     private static final int CAMERA_WIDTH = 1280; // width  of wanted camera resolution
-    private static final int CAMERA_HEIGHT = 720; // height of wanted camera resolution
+    private static final int CAMERA_HEIGHT = 960; // height of wanted camera resolution
 
     private RedObjectPipeline.ElementPosition DropPos;
     Arm botArm = new Arm();
@@ -40,15 +40,15 @@ public class CENTERSTAGE_RED_RR_BD_DROP extends LinearOpMode {
         drive.setPoseEstimate(startPose);
 
         TrajectorySequence toLeftDrop = drive.trajectorySequenceBuilder(startPose)
-                .splineToLinearHeading(new Pose2d(14, -32 , Math.toRadians(180)), Math.toRadians(180))
+                .splineToLinearHeading(new Pose2d(15, -32 , Math.toRadians(180)), Math.toRadians(180))
                 .build();
 
         TrajectorySequence toRightDrop = drive.trajectorySequenceBuilder(startPose)
-                .splineToLinearHeading(new Pose2d(7, -26, Math.toRadians(0)), Math.toRadians(180))
+                .splineToLinearHeading(new Pose2d(2, -26, Math.toRadians(0)), Math.toRadians(180))
                 .build();
 
         TrajectorySequence toCenterDrop = drive.trajectorySequenceBuilder(startPose)
-                .lineToConstantHeading(new Vector2d(12, -35))
+                .lineToConstantHeading(new Vector2d(12, -37))
                 .build();
 
         TrajectorySequence leftDropToPark = drive.trajectorySequenceBuilder(toLeftDrop.end())
@@ -58,12 +58,12 @@ public class CENTERSTAGE_RED_RR_BD_DROP extends LinearOpMode {
         TrajectorySequence rightDropToPark = drive.trajectorySequenceBuilder(toRightDrop.end())
                 .lineTo(new Vector2d(6, -32))
                 .splineToConstantHeading(new Vector2d(10, -48), Math.toRadians(0))
-                .splineToSplineHeading(new Pose2d(50, -38, Math.toRadians(180)), Math.toRadians(90))
+                .splineToSplineHeading(new Pose2d(50, -37, Math.toRadians(180)), Math.toRadians(90))
                 .build();
 
         TrajectorySequence centerDropToPark = drive.trajectorySequenceBuilder(toCenterDrop.end())
                 .lineTo(new Vector2d(12, -38))
-                .lineToSplineHeading(new Pose2d(52, -34, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(54, -32, Math.toRadians(180)))
                 .build();
 
 

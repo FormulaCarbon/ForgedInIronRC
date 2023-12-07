@@ -17,13 +17,13 @@ import org.openftc.easyopencv.OpenCvCameraRotation;
 public class CENTERSTAGE_BLUE_RR_BD_DROP extends LinearOpMode {
 
     public static double armPower = 0.3;
-    public static double armDropPos = -1600;
+    public static double armDropPos = -1800;
     public static double intakeDropAngle = 0.0;
 
     private OpenCvCamera webcam;
 
     private static final int CAMERA_WIDTH = 1280; // width  of wanted camera resolution
-    private static final int CAMERA_HEIGHT = 720; // height of wanted camera resolution
+    private static final int CAMERA_HEIGHT = 960; // height of wanted camera resolution
 
     private BlueObjectPipeline.ElementPosition DropPos;
     Arm botArm = new Arm();
@@ -56,12 +56,12 @@ public class CENTERSTAGE_BLUE_RR_BD_DROP extends LinearOpMode {
                 .build();
 
         TrajectorySequence rightDropToPark = drive.trajectorySequenceBuilder(toRightDrop.end())
-                .lineTo(new Vector2d(54, 22))
+                .lineTo(new Vector2d(56, 22))
                 .build();
 
         TrajectorySequence centerDropToPark = drive.trajectorySequenceBuilder(toCenterDrop.end())
                 .lineTo(new Vector2d(12, 40))
-                .lineToSplineHeading(new Pose2d(55, 35, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(55, 35.25, Math.toRadians(180)))
                 .build();
 
 
