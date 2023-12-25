@@ -43,25 +43,26 @@ public class CENTERSTAGE_BLUE_RR_BD_DROP extends LinearOpMode {
 
         TrajectorySequence toRightDrop = drive.trajectorySequenceBuilder(startPose)
                 .lineToLinearHeading(new Pose2d(21, 32, Math.toRadians(180)))
-                .lineTo(new Vector2d(17, 32))
+                .lineTo(new Vector2d(15, 32))
                 .build();
 
         TrajectorySequence toCenterDrop = drive.trajectorySequenceBuilder(startPose)
-                .lineToConstantHeading(new Vector2d(12, 38))
+                .lineToConstantHeading(new Vector2d(12, 37))
                 .build();
 
         TrajectorySequence leftDropToPark = drive.trajectorySequenceBuilder(toLeftDrop.end())
+                .lineTo(new Vector2d(4, 26))
                 .lineToConstantHeading(new Vector2d(10, 48))
-                .splineToLinearHeading(new Pose2d(51, 42, Math.toRadians(180)), Math.toRadians(270))
+                .splineToLinearHeading(new Pose2d(48, 41, Math.toRadians(180)), Math.toRadians(270))
                 .build();
 
         TrajectorySequence rightDropToPark = drive.trajectorySequenceBuilder(toRightDrop.end())
-                .lineTo(new Vector2d(56, 22))
+                .lineTo(new Vector2d(51.5, 24))
                 .build();
 
         TrajectorySequence centerDropToPark = drive.trajectorySequenceBuilder(toCenterDrop.end())
                 .lineTo(new Vector2d(12, 40))
-                .lineToSplineHeading(new Pose2d(55, 35.25, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(52, 35, Math.toRadians(180)))
                 .build();
 
 
@@ -103,7 +104,7 @@ public class CENTERSTAGE_BLUE_RR_BD_DROP extends LinearOpMode {
 
 
         if (DropPos == BlueObjectPipeline.ElementPosition.LEFT) {
-            botArm.setArmPos(2, -200);
+                botArm.setArmPos(2, -100);
             sleep(1000);
             drive.followTrajectorySequence(toLeftDrop);
 
@@ -135,7 +136,7 @@ public class CENTERSTAGE_BLUE_RR_BD_DROP extends LinearOpMode {
             telemetry.update();
 
         } else if (DropPos == BlueObjectPipeline.ElementPosition.CENTER) {
-            botArm.setArmPos(2, -200);
+            botArm.setArmPos(2, -100);
             sleep(1000);
             drive.followTrajectorySequence(toCenterDrop);
 
@@ -167,7 +168,7 @@ public class CENTERSTAGE_BLUE_RR_BD_DROP extends LinearOpMode {
             telemetry.update();
 
         } else if (DropPos == BlueObjectPipeline.ElementPosition.RIGHT) {
-            botArm.setArmPos(2, -200);
+            botArm.setArmPos(2, -100);
             sleep(1000);
             drive.followTrajectorySequence(toRightDrop);
 

@@ -20,7 +20,7 @@ public class Arm {
 
     static private double GEAR_RATIO = 71.2;
 
-    static double ARM_COUNT_PER_DEGREE = 1993.6 / 360;
+    w
 
     HardwareMap hwMap = null;
     LinearOpMode MyOp = null;
@@ -80,8 +80,8 @@ public class Arm {
 
     public void resetIntakeTilt()
     {
-        LeftTiltServo.setPosition(0.48);
-        RightTiltServo.setPosition(0.52);
+        LeftTiltServo.setPosition(0.33);
+        RightTiltServo.setPosition(0.67);
     }
 
     public void init(HardwareMap map, LinearOpMode OpMode)

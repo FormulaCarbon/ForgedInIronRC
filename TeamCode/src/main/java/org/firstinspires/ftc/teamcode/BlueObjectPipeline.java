@@ -39,7 +39,7 @@ public class BlueObjectPipeline extends OpenCvPipeline {
     static final Point REGION2_CENTER_ANCHOR_POINT = new Point(560,325);
     static final Point REGION3_CENTER_ANCHOR_POINT = new Point(1000,350);
     static final int REGION_WIDTH = 100;
-    static final int REGION_HEIGHT = 60;
+    static final int REGION_HEIGHT = 100;
 
     /*
      * Points which actually define the sample region rectangles, derived from above values

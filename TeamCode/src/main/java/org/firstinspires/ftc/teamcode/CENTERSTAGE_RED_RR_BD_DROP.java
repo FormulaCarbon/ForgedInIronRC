@@ -40,30 +40,31 @@ public class CENTERSTAGE_RED_RR_BD_DROP extends LinearOpMode {
         drive.setPoseEstimate(startPose);
 
         TrajectorySequence toLeftDrop = drive.trajectorySequenceBuilder(startPose)
-                .splineToLinearHeading(new Pose2d(15, -32 , Math.toRadians(180)), Math.toRadians(180))
+                .lineTo(new Vector2d(14, -62))
+                .splineToLinearHeading(new Pose2d(12, -32 , Math.toRadians(180)), Math.toRadians(180))
                 .build();
 
         TrajectorySequence toRightDrop = drive.trajectorySequenceBuilder(startPose)
-                .splineToLinearHeading(new Pose2d(2, -26, Math.toRadians(0)), Math.toRadians(180))
+                .splineToLinearHeading(new Pose2d(4, -26, Math.toRadians(0)), Math.toRadians(180))
                 .build();
 
         TrajectorySequence toCenterDrop = drive.trajectorySequenceBuilder(startPose)
-                .lineToConstantHeading(new Vector2d(12, -37))
+                .lineToConstantHeading(new Vector2d(12, -34))
                 .build();
 
         TrajectorySequence leftDropToPark = drive.trajectorySequenceBuilder(toLeftDrop.end())
-                .lineTo(new Vector2d(50, -23))
+                .lineTo(new Vector2d(48, -23))
                 .build();
 
         TrajectorySequence rightDropToPark = drive.trajectorySequenceBuilder(toRightDrop.end())
-                .lineTo(new Vector2d(6, -32))
+                .lineTo(new Vector2d(3, -32))
                 .splineToConstantHeading(new Vector2d(10, -48), Math.toRadians(0))
-                .splineToSplineHeading(new Pose2d(50, -37, Math.toRadians(180)), Math.toRadians(90))
+                .splineToSplineHeading(new Pose2d(48, -37, Math.toRadians(180)), Math.toRadians(90))
                 .build();
 
         TrajectorySequence centerDropToPark = drive.trajectorySequenceBuilder(toCenterDrop.end())
                 .lineTo(new Vector2d(12, -38))
-                .lineToSplineHeading(new Pose2d(54, -32, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(52, -32, Math.toRadians(180)))
                 .build();
 
 
@@ -113,7 +114,7 @@ public class CENTERSTAGE_RED_RR_BD_DROP extends LinearOpMode {
 
 
         if (DropPos == RedObjectPipeline.ElementPosition.LEFT) {
-            botArm.setArmPos(2, -200);
+            botArm.setArmPos(2, -100);
             sleep(1000);
             drive.followTrajectorySequence(toLeftDrop);
             telemetry.update();
@@ -147,7 +148,7 @@ public class CENTERSTAGE_RED_RR_BD_DROP extends LinearOpMode {
 
 
         } else if (DropPos == RedObjectPipeline.ElementPosition.CENTER) {
-            botArm.setArmPos(2, -200);
+            botArm.setArmPos(2, -10);
             sleep(1000);
             drive.followTrajectorySequence(toCenterDrop);
 
@@ -179,7 +180,7 @@ public class CENTERSTAGE_RED_RR_BD_DROP extends LinearOpMode {
             telemetry.update();
 
         } else if (DropPos == RedObjectPipeline.ElementPosition.RIGHT) {
-            botArm.setArmPos(2, -200);
+            botArm.setArmPos(2, -100);
             sleep(1000);
             drive.followTrajectorySequence(toRightDrop);
 
